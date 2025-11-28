@@ -1,0 +1,26 @@
+{
+  "name": "@dkg/plugin-diffipedia",
+  "version": "0.0.1",
+  "description": "Diffipedia plugin for computing similarity metrics and persisting them on the DKG",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "dev": "tsup src/*.ts src/**/*.ts --format cjs,esm --dts --watch",
+    "build": "tsup src/*.ts src/**/*.ts --format cjs,esm --dts",
+    "check-types": "tsc --noEmit",
+    "lint": "eslint . --max-warnings 0",
+    "test": "mocha --loader ../../node_modules/tsx/dist/loader.mjs 'tests/**/*.spec.ts'"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.65.0",
+    "@dkg/plugin-swagger": "^0.0.2",
+    "@dkg/plugins": "^0.0.2"
+  },
+  "devDependencies": {
+    "@dkg/eslint-config": "*",
+    "@dkg/typescript-config": "*",
+    "tsup": "^8.5.0"
+  }
+}
+

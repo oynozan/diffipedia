@@ -1,0 +1,116 @@
+#diff {
+    @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
+
+    p[id^=wp],
+    p[id^=gq] {
+        position: relative;
+        cursor: pointer;
+
+        &::after {
+            $p: 8px;
+            content: '';
+            position: absolute;
+            left: -$p;
+            top: -$p;
+            width: calc(100% + $p * 2);
+            height: calc(100% + $p * 2);
+            border-radius: $p;
+            background-color: transparent;
+            transition: background-color 80ms ease-in-out;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        &:hover {
+            &::after {
+                background-color: #fff1f813;
+                border: 2px solid var(--border);
+            }
+        }
+    }
+
+    .selected p, p.selected {
+        &::after {
+            border: 2px solid var(--border) !important;
+        }
+    }
+
+    #grokipedia-article {
+        .selected p{
+            &::after {
+                background: rgba(252, 134, 236, 0.233);
+            }
+        }
+    }
+
+    #wikipedia-article {
+        p.selected{
+            &::after {
+                background: rgba(247, 189, 1, 0.233);
+            }
+        }
+    }
+
+    // Custom markdown styling
+    .markdown-container {
+        font-family: "Inter", sans-serif;
+
+        h1,
+        h2,
+        h3 {
+            margin-bottom: .5rem;
+            font-size: 2.125em;
+            font-weight: 600;
+            letter-spacing: -1px;
+            font-family: 'Source Serif 4', serif;
+        }
+
+        h1:not(:first-child) {
+            margin-top: 3.5rem;
+        }
+
+        h2,
+        h3 {
+            margin-top: 1.75rem;
+            font-size: 1.714286em;
+        }
+
+        h2 {
+            border-bottom: 1px solid var(--border);
+            padding-bottom: .25rem;
+        }
+
+        h3 {
+            font-size: 1.428571em;
+        }
+
+        h4 {
+            font-size: 1.25em;
+        }
+
+        h5 {
+            font-size: 1.125em;
+        }
+
+        h6 {
+            font-size: 1em;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            overflow-wrap: break-word;
+            font-size: 1em;
+            line-height: 1.75rem;
+        }
+
+        ul, ol {
+            margin-left: 24px;
+        }
+
+        a {
+            color: var(--link);
+        }
+    }
+
+    @include modern-scrollbar;
+}
